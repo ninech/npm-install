@@ -123,7 +123,7 @@ func testLogging(t *testing.T, context spec.G, it spec.S) {
 				))
 				Expect(logs).To(ContainLines(
 					"  Configuring build environment",
-					"    NODE_ENV -> \"development\"",
+					"    NODE_ENV -> \production\"",
 					fmt.Sprintf("    PATH     -> \"$PATH:/layers/%s/build-modules/node_modules/.bin\"", strings.ReplaceAll(settings.Buildpack.ID, "/", "_")),
 					"",
 					fmt.Sprintf(`  Generating SBOM for /layers/%s/build-modules`, strings.ReplaceAll(settings.Buildpack.ID, "/", "_")),

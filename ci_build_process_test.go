@@ -195,7 +195,7 @@ func testCIBuildProcess(t *testing.T, context spec.G, it spec.S) {
 
 				Expect(executable.ExecuteCall.Receives.Execution.Args).To(Equal([]string{"ci", "--unsafe-perm", "--cache", cacheDir}))
 				Expect(executable.ExecuteCall.Receives.Execution.Dir).To(Equal(workingDir))
-				Expect(executable.ExecuteCall.Receives.Execution.Env).To(Equal(append(os.Environ(), "NPM_CONFIG_LOGLEVEL=some-val", "NPM_CONFIG_GLOBALCONFIG=some-npmrc-path", "NODE_ENV=development")))
+				Expect(executable.ExecuteCall.Receives.Execution.Env).To(Equal(append(os.Environ(), "NPM_CONFIG_LOGLEVEL=some-val", "NPM_CONFIG_GLOBALCONFIG=some-npmrc-path", "NODE_ENV=production")))
 				Expect(buffer.String()).To(ContainLines(
 					fmt.Sprintf("    Running 'npm ci --unsafe-perm --cache %s'", cacheDir),
 					"      stdout output",

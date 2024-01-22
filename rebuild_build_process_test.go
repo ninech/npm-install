@@ -204,7 +204,7 @@ func testRebuildBuildProcess(t *testing.T, context spec.G, it spec.S) {
 
 				Expect(executions[2].Args).To(Equal([]string{"rebuild", "--nodedir="}))
 				Expect(executions[2].Dir).To(Equal(workingDir))
-				Expect(executions[2].Env).To(Equal(append(os.Environ(), "NPM_CONFIG_GLOBALCONFIG=some-npmrc-path", "NPM_CONFIG_LOGLEVEL=some-val", "NODE_ENV=development")))
+				Expect(executions[2].Env).To(Equal(append(os.Environ(), "NPM_CONFIG_GLOBALCONFIG=some-npmrc-path", "NPM_CONFIG_LOGLEVEL=some-val", "NODE_ENV=production")))
 				Expect(buffer.String()).To(ContainLines(
 					"    Running 'npm rebuild --nodedir='",
 					"      stdout output",
