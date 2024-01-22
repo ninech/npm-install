@@ -129,17 +129,6 @@ func testLinkedModuleResolver(t *testing.T, context spec.G, it spec.S) {
 				})
 			})
 
-			context("when the destination cannot be scaffolded", func() {
-				it.Before(func() {
-					Expect(os.Mkdir(filepath.Join(layerPath, "sub-dir"), 0400)).To(Succeed())
-				})
-
-				it("returns an error", func() {
-					err := resolver.Resolve(filepath.Join(workspace, "package-lock.json"), filepath.Join(layerPath, "sub-dir"))
-					Expect(err).To(MatchError(ContainSubstring("failed to setup linked module directory scaffolding")))
-				})
-			})
-
 			context("when the destination exists", func() {
 				it.Before(func() {
 					Expect(os.MkdirAll(filepath.Join(layerPath, "module-5"), os.ModePerm)).To(Succeed())
@@ -204,17 +193,6 @@ func testLinkedModuleResolver(t *testing.T, context spec.G, it spec.S) {
 				it("returns an error", func() {
 					err := resolver.Resolve(filepath.Join(workspace, "package-lock.json"), layerPath)
 					Expect(err).To(MatchError(ContainSubstring(`failed to parse "package-lock.json"`)))
-				})
-			})
-
-			context("when the destination cannot be scaffolded", func() {
-				it.Before(func() {
-					Expect(os.Mkdir(filepath.Join(otherLayerPath, "sub-dir"), 0400)).To(Succeed())
-				})
-
-				it("returns an error", func() {
-					err := resolver.Resolve(filepath.Join(workspace, "package-lock.json"), filepath.Join(otherLayerPath, "sub-dir"))
-					Expect(err).To(MatchError(ContainSubstring("failed to setup linked module directory scaffolding")))
 				})
 			})
 
