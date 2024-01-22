@@ -73,7 +73,7 @@ func (r CIBuildProcess) Run(modulesDir, cacheDir, workingDir, npmrcPath string, 
 	}
 
 	if !launch {
-		environment = append(environment, "NODE_ENV=development")
+		environment = append(environment, "NODE_ENV=production")
 	}
 
 	args := []string{"ci", "--unsafe-perm", "--cache", cacheDir}

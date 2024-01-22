@@ -158,7 +158,7 @@ func testBuild(t *testing.T, context spec.G, it spec.S) {
 			Expect(buildLayer.BuildEnv).To(Equal(packit.Environment{
 				"PATH.append":       filepath.Join(layersDir, "build-modules", "node_modules", ".bin"),
 				"PATH.delim":        ":",
-				"NODE_ENV.override": "development",
+				"NODE_ENV.override": "production",
 			}))
 			Expect(buildLayer.LaunchEnv).To(Equal(packit.Environment{}))
 			Expect(buildLayer.ProcessLaunchEnv).To(Equal(map[string]packit.Environment{}))
@@ -460,7 +460,7 @@ func testBuild(t *testing.T, context spec.G, it spec.S) {
 			Expect(buildLayer.BuildEnv).To(Equal(packit.Environment{
 				"PATH.append":       filepath.Join(layersDir, "build-modules", "node_modules", ".bin"),
 				"PATH.delim":        ":",
-				"NODE_ENV.override": "development",
+				"NODE_ENV.override": "production",
 			}))
 			Expect(buildLayer.LaunchEnv).To(Equal(packit.Environment{}))
 			Expect(buildLayer.ProcessLaunchEnv).To(Equal(map[string]packit.Environment{}))
